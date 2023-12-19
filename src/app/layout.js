@@ -1,5 +1,8 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Navbar from './components/Navbar'
+import { Flex } from 'antd'
+import { Footer } from 'antd/es/layout/layout'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +14,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className}`}>
+        <Flex gap={'middle'} style={{minHeight: '100vh' }}  >
+          <Navbar />
+          <main>{children}</main>
+        </Flex>
+        <Footer style={{ backgroundColor: 'black', color:'white', textAlign:'center'}}>
+          Footer
+        </Footer>
+        
+      </body>
     </html>
   )
 }
